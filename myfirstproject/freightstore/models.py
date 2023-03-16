@@ -1,6 +1,8 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 
+#  export DYLD_LIBRARY_PATH="/usr/local/mysql/lib:$PATH"
+
 
 class PositiveTinyAutoField(models.AutoField):
     def get_db_prep_value(self, value, connection, prepared=False):
