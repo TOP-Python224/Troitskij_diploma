@@ -10,7 +10,7 @@ class PositiveTinyAutoField(models.AutoField):
         return value
 
     def db_type(self, connection):
-        return 'rinyint unsigned auto_increment'
+        return 'tinyint unsigned auto_increment'
 
     def rel_db_type(self, connection):
         return 'tinyint unsigned'
