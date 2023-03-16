@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 config = {
     # ключ — сетевое имя системы, также известное как HOSTNAME
-    '': 'db_tigran.cnf',
+    'MBP-Rheeza': 'db_tigran.cnf',
     'BigBrother': 'db_gennadiy.cnf',
 }
 system_name = node()
