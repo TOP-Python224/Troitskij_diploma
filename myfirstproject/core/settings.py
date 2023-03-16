@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+from platform import node
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -76,11 +77,19 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+config = {
+    # ключ — сетевое имя системы, также известное как HOSTNAME
+    '': 'db_tigran.cnf',
+    'BigBrother': 'db_gennadiy.cnf',
+}
+system_name = node()
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'OPTIONS': {
-            'read_default_file': str(BASE_DIR / 'db.cnf'),
+            'read_default_file': str(BASE_DIR / config[system_name]),
         },
         'AUTOCOMMIT': True,
     }
