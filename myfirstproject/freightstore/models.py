@@ -27,3 +27,39 @@ class Carrier(models.Model):
 
     def __str__(self):
         return f'{self.name}'
+
+
+class PortOfLoading(models.Model):
+    id = PositiveTinyAutoField(primary_key=True)
+    name = models.CharField(max_length=50, unique=True)
+
+    class Meta:
+        db_table = 'port_of_loading'
+
+    def __str__(self):
+        return f'{self.name}'
+
+
+class ContainerType(models.Model):
+    id = PositiveTinyAutoField(primary_key=True)
+    name = models.CharField(max_length=50, unique=True)
+
+    class Meta:
+        db_table = 'container_type'
+
+    def __str__(self):
+        return f'{self.name}'
+
+
+class FreightTariffs(models.Model):
+    id = PositiveTinyAutoField(primary_key=True)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    carrier = models.ForeignKey(Carrier, models.CASCADE)
+    port = models.ForeignKey(PortOfLoading, models.CASCADE)
+    container = models.ForeignKey(ContainerType, models.CASCADE)
+
+    class Meta:
+        db_table = 'freight_tariffs'
+
+    def __str__(self):
+        return f'{self.price}'
