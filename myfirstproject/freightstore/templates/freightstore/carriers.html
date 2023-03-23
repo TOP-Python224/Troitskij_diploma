@@ -27,9 +27,10 @@
 			<div class="content">
 				<h4>Порты</h4>
                 <table>
-                    {% for carrier in carrier.freighttariff_set.all %}
+					{{ carrier.name }}
+                    {% for tariff in carrier.freighttariff_set.all %}
                     <tr>
-                        {{ carrier }}
+                        {{ tariff }}
                     </tr>
                     {% endfor %}
                 </table>
