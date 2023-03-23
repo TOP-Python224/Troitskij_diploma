@@ -20,7 +20,7 @@ class PositiveTinyAutoField(models.AutoField):
 
 class Carrier(models.Model):
     id = PositiveTinyAutoField(primary_key=True)
-    name = models.CharField(max_length=50, unique=True)
+    name = models.CharField(max_length=50)
 
     class Meta:
         db_table = 'carrier'
@@ -31,7 +31,7 @@ class Carrier(models.Model):
 
 class PortOfLoading(models.Model):
     id = PositiveTinyAutoField(primary_key=True)
-    name = models.CharField(max_length=50, unique=True)
+    name = models.CharField(max_length=50)
 
     class Meta:
         db_table = 'port_of_loading'
@@ -42,7 +42,7 @@ class PortOfLoading(models.Model):
 
 class ContainerType(models.Model):
     id = PositiveTinyAutoField(primary_key=True)
-    name = models.CharField(max_length=50, unique=True)
+    name = models.CharField(max_length=50)
 
     class Meta:
         db_table = 'container_type'
