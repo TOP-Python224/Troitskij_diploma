@@ -1,5 +1,6 @@
 from django.core.exceptions import ValidationError
 from django.db import models
+import re
 
 #  export DYLD_LIBRARY_PATH="/usr/local/mysql/lib:$PATH"
 
@@ -27,6 +28,11 @@ class Carrier(models.Model):
 
     def __str__(self):
         return f'{self.name}'
+
+    @property
+    def short_name(self):
+        s_name = re.sub('[^A-Za-z0-9]', '_', str(self.name))
+        return str(s_name).lower()
 
 
 class PortOfLoading(models.Model):
