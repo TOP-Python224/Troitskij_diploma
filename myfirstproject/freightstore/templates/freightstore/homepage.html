@@ -10,15 +10,13 @@
 		<div>
 			<div class="divmenu">
 				<ul class="menu">
-					<li><a href="">Главная</a></li>
+					<li><a href="{% url 'main' %}">Главная</a></li>
 					<li><a href="">О компании</a></li>
 					<li><a href="">Цены</a>
 						<ul>
-							<li><a href="">Maersk</a></li>
-							<li><a href="">MSC</a></li>
-							<li><a href="">CMA CGM</a></li>
-							<li><a href="">Evergreen</a></li>
-							<li><a href="">Hapag-Lloyd</a></li>
+							{% for carrier in carriers_list %}
+							<li><a href="{% url carrier.short_name %}">{{ carrier }}</a></li>
+							{% endfor %}
 						</ul>
 					</li>
 					<li><a href="">Контакты</a></li>
@@ -29,8 +27,8 @@
 			</div>
 		</div>
 		<footer>
-			</hr>
-			<p>и тут что то написано</p>
+			<hr>
+			<p>FOOTER</p>
 		</footer>
 	</body>
 </html>
