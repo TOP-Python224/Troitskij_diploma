@@ -22,5 +22,6 @@ def carriers(request, carr_id: int):
         'freightstore/carriers.html',
         {
             'carrier':  carrier,
+            'page_title': carrier.name,
         }
     )
