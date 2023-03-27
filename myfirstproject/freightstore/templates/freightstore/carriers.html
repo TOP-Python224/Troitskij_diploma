@@ -28,7 +28,7 @@
 				<h4>Порты</h4>
                 <table>
 					{{ carrier.name }}
-                    {% for tariff in carrier.freighttariff_set.all %}
+                    {% for tariff in carrier.freighttariffs_set.all %}
                     <tr>
                         {{ tariff }}
                     </tr>
